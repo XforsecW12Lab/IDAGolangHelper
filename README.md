@@ -1,13 +1,3 @@
-# IDAGolangHelper
-Set of IDA Pro scripts for parsing GoLang types information stored in compiled binary
-
-
-This is update for https://gitlab.com/zaytsevgu/GoUtils2.0
-
-Differences:
-  1. Add support for go1.8 and go1.9, go1.10 (well actually it seems no difference from go1.9)
-  2. Automatically add user-defined types to IDA. (Can be checked in Shift+f9 view)
-  3. Add some not very advanced string recognition. You can press Shift+S to process current function
-
-
-https://2016.zeronights.ru/wp-content/uploads/2016/12/GO_Zaytsev.pdf - My presentation about Golang reversing
+forked from https://github.com/sibears/IDAGolangHelper
+修改部分文件升级支持python3 可用于idaPro v7.4 以上
+使用方法教程可以看我们的微信公众号：![扫码_搜索联合传播样式-标准色版](https://user-images.githubusercontent.com/49470951/110085246-d9bff080-7dcb-11eb-9e04-da24a26bd6e2.png)
