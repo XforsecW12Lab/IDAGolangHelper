@@ -1,5 +1,4 @@
-import ida_enum
-import ida_struct
+import idaapi
 import idc
 import string
 import random
@@ -27,6 +26,7 @@ def rename(offset, name):
 
 
 def relaxName(name):
+    name = bytes.decode(name)
     name = name.replace('.', '_').replace("<-", '_chan_left_').replace('*', '_ptr_').replace('-', '_').replace(';','').replace('"', '').replace('\\', '')
     name = name.replace('(', '').replace(')', '').replace('/', '_').replace(' ', '_').replace(',', 'comma').replace('{','').replace('}', '').replace('[', '').replace(']', '')
     return name
@@ -61,7 +61,7 @@ class StructCreator(object):
             self.uintptr = (idc.FF_DWORD | idc.FF_DATA, -1, bt_obj.size)
 
     def createStruct(self, name):
-        sid = ida_struct.get_struc_id(name)
+        sid = idaapi.get_struc_id(name)
         if sid != -1:
             idc.del_struc(sid)
         sid = idc.add_struc(-1, name, 0)
@@ -95,7 +95,7 @@ class StructCreator(object):
                 idc.SetType(idc.get_member_id(sid, offset), new_type)
 
     def makeStruct(self, i):
-        print "Creating structure %s" % (i[0])
+        print ("Creating structure %s" % (i[0]))
         sid = self.createStruct(i[0])
         self.fillStruct(sid, i[1])
 
@@ -105,10 +105,10 @@ class StructCreator(object):
 
     def createEnum(self, enum):
         eid = idc.add_enum(-1, enum[0], 0x1100000) #what is this flag?
-        ida_enum.set_enum_bf(eid, 1)
+        idaapi.set_enum_bf(eid, 1)
         val = 0
         mask = 0x1f
-        ida_enum.set_enum_width(eid, 1)
+        idaapi.set_enum_width(eid, 1)
         for i in enum[1]:
             idc.add_enum_member(eid, i, val, mask)
             val += 1
