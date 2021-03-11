@@ -5,7 +5,7 @@
 - 解压后放入`IDA根目录\plugins`中,注意保留目录结构。
   - 或者放在随便的一个地方之后使用IDA快捷键`Alt+F7`加载脚本文件，选择`go_entry.py`文件
 - 之后会弹出一个GoLoader对话框，可以选择版本等等
-  ![image](https://user-images.githubusercontent.com/49470951/110728078-5a14a480-8257-11eb-8bbb-214f24486b88.png)
+- ![image](https://user-images.githubusercontent.com/49470951/110728078-5a14a480-8257-11eb-8bbb-214f24486b88.png)
 - 前两个`Try……`用于通过不同的方式自动尝试识别Go版本
 - `Rename functions` 是主按键用于触发符号的修复
 - `Go version` 用于选择Go版本,大于`1.10`的直接选择`1.10`即可。
