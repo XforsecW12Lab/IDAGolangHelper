@@ -4,7 +4,7 @@
 ## 食用方式
 - 解压后放入`IDA根目录\plugins`中,注意保留目录结构。
   - 或者放在随便的一个地方之后使用IDA快捷键`Alt+F7`加载脚本文件，选择`go_entry.py`文件
-- 之后会弹出一个GoLoader对话框，可以选择版本等等![image](https://user-images.githubusercontent.com/49470951/110726407-4a479100-8254-11eb-8527-668857e9a203.png)
+- 之后会弹出一个GoLoader对话框，可以选择版本等等![image](https://user-images.githubusercontent.com/49470951/110728078-5a14a480-8257-11eb-8bbb-214f24486b88.png)
 - 前两个`Try……`用于通过不同的方式自动尝试识别Go版本
 - `Rename functions` 是主按键用于触发符号的修复
 - `Go version` 用于选择Go版本,大于`1.10`的直接选择`1.10`即可。
@@ -13,8 +13,9 @@
 
 ## 大概原理
 - 插件使用特征码查找隐藏的或者包含的`.gopclntab`段，并使用其结构恢复符号表
-- windows下虽然没有`.gopclntab`段，但是通过特征码`FB FF FF FF 00 00 01 04`依旧可以在`.data`段找到与`.gopclntab`段相同的结构内容
-- 请注意`00 00 01 04`可能会更改![Uploading image.png…]()
+- windows下虽然没有`.gopclntab`段，但是通过特征码`FB FF FF FF 00 00 01 04`依旧可以在`.data`段找到与`.gopclntab`段相同的结构内容![image](https://user-images.githubusercontent.com/49470951/110728143-79133680-8257-11eb-9ba4-46940d638d43.png)
+- 请注意`00 00 01 04`可能会更改![image](https://user-images.githubusercontent.com/49470951/110728122-70226500-8257-11eb-988d-15a417c522fd.png)
+
 
 == 在rename的过程中可能时间有点久，等等就好。之后要点击ok哦 ==
 
